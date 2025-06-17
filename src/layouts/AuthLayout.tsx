@@ -23,7 +23,7 @@ const AuthLayout = () => {
             <div className="flex justify-center">
               <BarChart3 className="h-12 w-12 text-primary-500" />
             </div>
-            <h2 className="mt-4 text-3xl font-extrabold text-gray-900">InvestNexus</h2>
+            <h2 className="mt-4 text-3xl font-extrabold text-gray-900">Crowdfunding</h2>
             <p className="mt-2 text-sm text-gray-600">
               The future of startup investment powered by AI and blockchain
             </p>
