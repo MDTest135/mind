@@ -14,10 +14,20 @@ interface Message {
 const INITIAL_MESSAGES: Message[] = [
   {
     id: '1',
-    content: 'Hello! I\'m your AI assistant. How can I help you with investing today?',
+    content: "Hello! I'm your AI assistant. How can I help you with investing today?",
     sender: 'bot',
     timestamp: new Date(),
   },
+];
+
+const botResponses = [
+  "I can help you find startups that match your investment criteria.",
+  "Based on your profile, you might be interested in fintech startups.",
+  "The current trending sectors are clean energy and healthcare AI.",
+  "For new investors, I recommend starting with lower-risk opportunities.",
+  "You can diversify your portfolio by investing smaller amounts across multiple startups.",
+  "Our platform uses blockchain to ensure all transactions are secure and transparent.",
+  "You can earn reward tokens by completing your profile and making regular investments.",
 ];
 
 interface ChatbotProps {
@@ -29,6 +39,7 @@ const Chatbot = ({ className }: ChatbotProps) => {
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [botResponseIndex, setBotResponseIndex] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -56,26 +67,18 @@ const Chatbot = ({ className }: ChatbotProps) => {
 
     // Simulate bot response after delay
     setTimeout(() => {
-      const botResponses = [
-        "I can help you find startups that match your investment criteria.",
-        "Based on your profile, you might be interested in fintech startups.",
-        "The current trending sectors are clean energy and healthcare AI.",
-        "For new investors, I recommend starting with lower-risk opportunities.",
-        "You can diversify your portfolio by investing smaller amounts across multiple startups.",
-        "Our platform uses blockchain to ensure all transactions are secure and transparent.",
-        "You can earn reward tokens by completing your profile and making regular investments.",
-      ];
-      
+      const response =
+        botResponses[botResponseIndex % botResponses.length];
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        // content: botResponses[Math.floor(Math.random() * botResponses.length)],
-        content: botResponses[3],
+        content: response,
         sender: 'bot',
         timestamp: new Date(),
       };
       
       setMessages((prev) => [...prev, botMessage]);
       setIsTyping(false);
+      setBotResponseIndex((prev) => prev + 1);
     }, 1500);
   };
 
