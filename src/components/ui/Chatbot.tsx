@@ -69,7 +69,7 @@ const Chatbot = ({ className }: ChatbotProps) => {
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         // content: botResponses[Math.floor(Math.random() * botResponses.length)],
-        content: botResponses[2],
+        content: botResponses[3],
         sender: 'bot',
         timestamp: new Date(),
       };
