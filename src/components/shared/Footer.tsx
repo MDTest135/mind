@@ -16,7 +16,7 @@ const Footer = ({ className }: FooterProps) => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center">
               {/*<BarChart3 className="h-8 w-8 text-primary-500" />*/}
-              <span className="ml-2 text-xl font-bold text-primary-800">MindCrowd</span>
+              <span className="mt-4 text-xl font-bold text-primary-800">MindCrowd</span>
             </Link>
             <p className="mt-4 text-gray-600 text-sm">
               A revolutionary platform combining AI and blockchain technology to connect investors with promising startups. 
